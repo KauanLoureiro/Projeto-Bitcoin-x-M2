@@ -1,0 +1,15 @@
+# Secrets
+.env
+*.env
+Environment/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Draft / Experimentos
+Rascunho/
