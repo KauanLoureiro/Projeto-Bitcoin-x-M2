@@ -1,8 +1,6 @@
 import pandas as pd
 import requests
-import os
-from dotenv import load_dotenv
-from io import StringIO, BytesIO
+from io import BytesIO
 
 file = {
     2025:"https://www.pbc.gov.cn/diaochatongjisi/attachDir/2025/11/2025111913535649624.xlsx",

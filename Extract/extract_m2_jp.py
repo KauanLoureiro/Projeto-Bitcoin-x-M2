@@ -1,8 +1,6 @@
 import pandas as pd
 import requests
-import os
-from dotenv import load_dotenv
-from io import StringIO, BytesIO
+from io import StringIO
 
 url_base_JAP = "https://www.stat-search.boj.or.jp/ssi/mtshtml/md02_m_1_en.html"
 
