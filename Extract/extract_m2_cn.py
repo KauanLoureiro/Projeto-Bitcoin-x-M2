@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+from pathlib import Path
 from io import BytesIO
 
 file = {
@@ -34,8 +35,18 @@ def get_file(url):
     return data
 
 datas_china = []
+PATHS = []
 
 for time in range(2025,2016,-1):
     a = get_file(file[time])
 
     datas_china.append(a)
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_cn"
+
+for i in range(2025,2016,-1):
+    PATHS.append(str(BRONZE_PATH) + f"\M2_cn{i}.csv")
+
+for j, k in zip(datas_china, PATHS):
+    j.to_csv(k)

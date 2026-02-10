@@ -1,0 +1,16 @@
+,货币供应量,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13,Unnamed: 14
+0,Money Supply,,,,,,,,,,,,,,
+1,,,,,,,,,,,单位：亿元人民币,,,,
+2,,,,,,,,,,,Unit:100 Million Yuan,,,,
+3,,,,,,,,,,,,,,,
+4,项目 Item,,,2017.01,2017.02,2017.03,2017.04,2017.05,2017.06,2017.07,2017.08,2017.09,2017.1,2017.11,2017.12
+5,,,,,,,,,,,,,,,
+6, 货币和准货币（M2）,,,1584194.56383135,1589856.9953504798,1607938.9800221233,1603918.8402428387,1609740.7737552722,1639497.0451349127,1636341.1052485916,1652947.30031106,1663666.054387415,1662449.960198809,1679156.636130095,1690235.3146807898
+7, Money & Quasi-money,,,,,,,,,,,,,,
+8,, 货币（M1）,,472526.45,476527.6,488770.09,490180.419727418,496389.78217315796,510228.165976735,510484.57751922304,518113.929798677,517863.03732940595,525977.190419686,535565.049541226,543790.145191184
+9,, Money,,,,,,,,,,,,,
+10,,,流通中货币（M0）,86598.61,71727.69,68605.05,68392.5963723013,67333.2071410556,66977.6816200452,67129.0414026128,67550.9894731954,69748.5402360219,68230.6880467052,68623.1573003908,70645.5992424259
+11,,,Currency in Circulation,,,,,,,,,,,,
+12,,,,,,,,,,,,,,,
+13,     注：2018年1月，人民银行完善货币供应量中货币市场基金部分的统计方法，用非存款机构部门持有的货币市场基金取代货币市场基金存款（含存单）。表中2017年以来的货币和准货币数据为更新后的可比数据。,,,,,,,,,,,,,,
+14,"           The PBC improved the method of data compiling in money supply statistics in January 2018. Specifically, as a result of improvement, the item of money market funds, which was treated as deposits of money market funds(CD included), is now treated as the total of money market fund units held by the non-deposit taking financial institutions, household sector and non-financial companies. The monthly outstanding M2 in 2017 are updated correspondingly.",,,,,,,,,,,,,,

@@ -1,10 +1,15 @@
 import requests
+import pandas as pd
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-ENV_PATH = BASE_DIR / "Enviroment" / "API_key.env"
+ENV_PATH = BASE_DIR / "Environment" / "API_key.env"
+
+print(os.getcwd())
+
+# Testar "..\environment\API_key.env"
 load_dotenv(dotenv_path=ENV_PATH)
 
 FRED_API_KEY = os.getenv("FRED_KEY")
@@ -32,4 +37,8 @@ Id = {"EUA": "M2SL"}
 
 data_EUA = get_M2(Id["EUA"])
 
-print(os.getcwd())
+df = pd.DataFrame(data_EUA)
+
+BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_us" / "M2_us.csv"
+
+df.to_csv(BRONZE_PATH)
