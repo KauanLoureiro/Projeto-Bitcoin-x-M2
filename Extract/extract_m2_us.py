@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import sqlite3
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -37,8 +38,9 @@ Id = {"EUA": "M2SL"}
 
 data_EUA = get_M2(Id["EUA"])
 
+
 df = pd.DataFrame(data_EUA)
 
-BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_us" / "M2_us.csv"
+BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_us.csv"
 
 df.to_csv(BRONZE_PATH)

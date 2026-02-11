@@ -1,5 +1,7 @@
 import pandas as pd
 import requests
+import sqlite3
+import json
 from pathlib import Path
 from io import BytesIO
 
@@ -43,10 +45,11 @@ for time in range(2025,2016,-1):
     datas_china.append(a)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_cn"
+BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_cn.json"
 
-for i in range(2025,2016,-1):
-    PATHS.append(str(BRONZE_PATH) + f"\M2_cn{i}.csv")
-
-for j, k in zip(datas_china, PATHS):
-    j.to_csv(k)
+with open(BRONZE_PATH, "w", encoding="utf-8") as f:
+    json.dump(
+        [df.to_dict(orient="records") for df in datas_china],
+        f,
+        ensure_ascii=False
+    )
