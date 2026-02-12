@@ -1,1 +1,2 @@
-.tables
+SELECT *
+FROM M2_us

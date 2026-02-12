@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import sqlite3
 import os
+import json
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -38,9 +39,13 @@ Id = {"EUA": "M2SL"}
 
 data_EUA = get_M2(Id["EUA"])
 
+BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_us.json"
 
-df = pd.DataFrame(data_EUA)
+with open(BRONZE_PATH, "w", encoding="utf-8") as f:
+    json.dump(
+        data_EUA,
+        f
+    )
 
-BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_us.csv"
-
-df.to_csv(BRONZE_PATH)
+# df = pd.DataFrame(data_EUA)
+# df.to_csv(BRONZE_PATH)
