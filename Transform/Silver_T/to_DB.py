@@ -5,7 +5,7 @@ import sqlite3
 from pathlib import Path
 import json
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 DB_path = BASE_DIR / "Data" / "Silver" / "Silver_raw.db"
 bronze_path = BASE_DIR / "Data" / "Bronze"
@@ -146,3 +146,19 @@ sort(M2_cn)
 
 M2_cn.to_sql("M2_cn", con=con, if_exists="replace", index=False)
 #falta converter de yuan para dolar
+
+# %%
+
+fx_path = bronze_path / "fx.csv"
+
+fx = pd.read_csv(fx_path)
+
+fx_close = fx[list(fx.columns)[0:4]]
+fx_close.columns = ["Date", "CNYUSD", "EURUSD", "JPYUSD"]
+fx_close = fx_close.drop([0,1])
+fx_close.sort_values("Date", ascending=False, inplace=True)
+
+fx_close.to_sql("fx", con=con, if_exists="replace", index=False)
+
+
+# %%
