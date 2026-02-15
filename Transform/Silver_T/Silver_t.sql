@@ -1,19 +1,98 @@
-SELECT *
+-- Bitcoin
+DROP TABLE IF EXISTS BTC_DOL;
+CREATE TABLE IF NOT EXISTS BTC_DOL AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(BTC_price) AS BTC_price_M
 FROM BTC
-LIMIT 5;
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date DESC;
 
-SELECT *
+DROP TABLE IF EXISTS BTC;
+
+-- M2 China
+DROP TABLE IF EXISTS M2_cn_CNY;
+CREATE TABLE IF NOT EXISTS M2_cn_CNY AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(M2_cn) AS M2_cn_M
 FROM M2_cn
-LIMIT 5;
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date DESC;
 
-SELECT *
+DROP TABLE IF EXISTS M2_cn;
+
+-- M2 Europa
+DROP TABLE IF EXISTS M2_eu_EUR;
+CREATE TABLE IF NOT EXISTS M2_eu_EUR AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(M2_eu) AS M2_eu_M
 FROM M2_eu
-LIMIT 5;
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date DESC;
 
-SELECT *
+DROP TABLE IF EXISTS M2_eu;
+
+-- M2 Japão
+DROP TABLE IF EXISTS M2_jp_JPY;
+CREATE TABLE IF NOT EXISTS M2_jp_JPY AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(M2_jp) AS M2_jp_M
 FROM M2_jp
-LIMIT 5;
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date ASC;
 
-SELECT *
+DROP TABLE IF EXISTS M2_jp;
+
+-- M2 USA
+DROP TABLE IF EXISTS M2_us_DOL;
+CREATE TABLE IF NOT EXISTS M2_us_DOL AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(M2_us) AS M2_us_M
 FROM M2_us
-LIMIT 5;
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date DESC;
+
+DROP TABLE IF EXISTS M2_jp;
+
+-- FX
+DROP TABLE IF EXISTS fx_SILVER;
+CREATE TABLE IF NOT EXISTS fx_SILVER AS 
+
+SELECT 
+strftime('%Y-%m', Date) AS Month,
+avg(CNYUSD) AS CNYUSD_M,
+avg(EURUSD) AS EURUSD_M,
+avg(JPYUSD) AS JPYUSD_M
+FROM fx
+WHERE Date BETWEEN '2017-01' AND '2025-11'
+GROUP BY strftime('%Y-%m', Date)
+ORDER BY Date DESC;
+
+DROP TABLE IF EXISTS fx;
+
+-- Conversão de unidade monetária
+-- EUR to DOL
+DROP TABLE IF EXISTS M2_eu_DOL;
+CREATE TABLE IF NOT EXISTS M2_eu_DOL AS 
+
+SELECT
+    t1.Month,
+    t1.M2_eu_M*t2.EURUSD_M AS M2_eu_M_DOL
+FROM M2_eu_EUR AS t1
+
+LEFT JOIN fx_SILVER AS t2
+ON t1.Month = t2.Month;

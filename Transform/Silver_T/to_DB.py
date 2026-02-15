@@ -5,7 +5,7 @@ import sqlite3
 from pathlib import Path
 import json
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 DB_path = BASE_DIR / "Data" / "Silver" / "Silver_raw.db"
 bronze_path = BASE_DIR / "Data" / "Bronze"
@@ -157,6 +157,7 @@ fx_close = fx[list(fx.columns)[0:4]]
 fx_close.columns = ["Date", "CNYUSD", "EURUSD", "JPYUSD"]
 fx_close = fx_close.drop([0,1])
 fx_close.sort_values("Date", ascending=False, inplace=True)
+fx_close["Date"] = pd.to_datetime(fx_close["Date"])
 
 fx_close.to_sql("fx", con=con, if_exists="replace", index=False)
 
