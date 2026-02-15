@@ -31,7 +31,6 @@ btc = btc.rename(columns={
 })
 btc["Date"] = pd.to_datetime(btc["Date"])
 sort(btc)
-# btc.sort_values("Date", ascending=False, inplace=True)
 
 btc.to_sql("BTC", con=con, if_exists="replace", index=False)
 # %%
@@ -63,7 +62,6 @@ df_eu["Date"] = pd.to_datetime(df_eu["Date"])
 
 sort(df_eu)
 
-#falta converter de euro para dolar
 df_eu.to_sql("M2_eu", con=con, if_exists="replace", index=False)
 # %%
 # US ✓
@@ -110,7 +108,6 @@ jp["M2_jp"] = pd.to_numeric(jp["M2_jp"])*10**8
 sort(jp)
 
 jp.to_sql("M2_jp", con=con, if_exists="replace", index=False)
-#falta converter de iene para dolar
 
 # %%
 
@@ -118,7 +115,6 @@ cn_path = bronze_path / "M2_cn.json"
 
 with open(cn_path, "r", encoding="utf-8") as f:
     cn = json.load(f)
-
 
 def format(df):
     df = pd.DataFrame(df)
@@ -143,10 +139,10 @@ for i in cn:
 M2_cn = pd.concat(cn_format, axis=0, ignore_index=True)
 M2_cn.dropna(inplace=True)
 sort(M2_cn)
+M2_cn["M2_cn"] = pd.to_numeric(M2_cn["M2_cn"], errors="coerce")*10**9
 
 M2_cn.to_sql("M2_cn", con=con, if_exists="replace", index=False)
-#falta converter de yuan para dolar
-
+#falta consertar o ano de 2022
 # %%
 
 fx_path = bronze_path / "fx.csv"
