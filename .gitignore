@@ -3,6 +3,11 @@
 *.env
 Environment/
 
+# Data
+Data/Bronze/
+Data/Silver/
+Data/Gold/
+
 # Python
 __pycache__/
 *.pyc
