@@ -1,8 +1,8 @@
 {
   "header": {
-    "id": "4f5cfa5b-4618-4b05-97e6-094ce7e58ca7",
+    "id": "f45b22af-261c-472f-b16b-81c995ce68db",
     "test": false,
-    "prepared": "2026-01-29T10:50:27.471+00:00",
+    "prepared": "2026-02-13T10:52:47.869+00:00",
     "sender": {
       "id": "ECB"
     }
@@ -10,7 +10,7 @@
   "dataSets": [
     {
       "action": "Replace",
-      "validFrom": "2026-01-29T10:50:27.471+00:00",
+      "validFrom": "2026-02-13T10:52:47.869+00:00",
       "series": {
         "0:0:0:0:0:0:0:0:0:0:0": {
           "attributes": [

@@ -7,7 +7,7 @@ import json
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
-DB_path = BASE_DIR / "Data" / "Silver" / "Silver_raw.db"
+DB_path = BASE_DIR / "Data" / "Silver" / "Silver.db"
 bronze_path = BASE_DIR / "Data" / "Bronze"
 
 con = sqlite3.connect(DB_path)
@@ -111,6 +111,18 @@ jp.to_sql("M2_jp", con=con, if_exists="replace", index=False)
 
 # %%
 
+def get_date(x):
+    if type(x) == str:
+        return x[:-1]
+    else:
+        return x
+    
+def get_m2(x):
+    if type(x) == str:
+        return x[:-1]
+    else:
+        return x
+
 cn_path = bronze_path / "M2_cn.json"
 
 with open(cn_path, "r", encoding="utf-8") as f:
@@ -126,6 +138,8 @@ def format(df):
         4:"Date",
         6:"M2_cn"
     })
+    df["Date"] = df["Date"].apply(get_date)
+    df["M2_cn"] = df["M2_cn"].apply(get_m2)
     df["Date"] = pd.to_datetime(df["Date"].astype(str))
     df.loc[12,"Date"] = df.loc[12,"Date"].replace(month=10)
     df = df.sort_values(by="Date", ascending=False)
@@ -139,9 +153,10 @@ for i in cn:
 M2_cn = pd.concat(cn_format, axis=0, ignore_index=True)
 M2_cn.dropna(inplace=True)
 sort(M2_cn)
-M2_cn["M2_cn"] = pd.to_numeric(M2_cn["M2_cn"], errors="coerce")*10**9
+M2_cn["M2_cn"] = pd.to_numeric(M2_cn["M2_cn"])*10**9
 
 M2_cn.to_sql("M2_cn", con=con, if_exists="replace", index=False)
+
 #falta consertar o ano de 2022
 # %%
 
