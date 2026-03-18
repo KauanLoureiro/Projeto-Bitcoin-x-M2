@@ -7,11 +7,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-ENV_PATH = BASE_DIR / "Environment" / "API_key.env"
+ENV_PATH = BASE_DIR / "Environment" / ".env"
 
 print(os.getcwd())
 
-# Testar "..\environment\API_key.env"
 load_dotenv(dotenv_path=ENV_PATH)
 
 FRED_API_KEY = os.getenv("FRED_KEY")
@@ -46,6 +45,3 @@ with open(BRONZE_PATH, "w", encoding="utf-8") as f:
         data_EUA,
         f
     )
-
-# df = pd.DataFrame(data_EUA)
-# df.to_csv(BRONZE_PATH)

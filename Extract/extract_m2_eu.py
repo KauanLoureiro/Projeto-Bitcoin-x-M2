@@ -30,19 +30,4 @@ with open(BRONZE_PATH, "w", encoding="utf-8") as f:
         indent=2
     )
 
-# # Formatação para entrar no SQL
-# dates_list = data_EURO['structure']["dimensions"]["observation"][0]["values"]
-# date = []
-# for j in dates_list:
-#     date.append(j[list(j.keys())[0]])
-
-# obs = data_EURO['dataSets'][0]['series']['0:0:0:0:0:0:0:0:0:0:0']['observations']
-# value = []
-# for i in list(obs.keys()):
-#     value.append(obs[i][0])
-
-# df = pd.DataFrame({
-#     "Dates":date,
-#     "M2_eu_value":value
-# })
 
