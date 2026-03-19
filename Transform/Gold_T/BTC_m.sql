@@ -1,2 +1,0 @@
-SELECT *
-FROM BTC_DOL

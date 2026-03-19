@@ -82,3 +82,4 @@ cur.copy_expert(
 conection.commit()
 cur.close()
 conection.close()
+# %%
