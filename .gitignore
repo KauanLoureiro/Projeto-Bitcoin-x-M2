@@ -16,3 +16,16 @@ __pycache__/
 
 # Draft / Experimentos
 Rascunho/
+
+# Airflow
+logs/
+*.log
+
+# Jupyter
+.ipynb_checkpoints
+
+# Sistema
+.DS_Store
+
+# Pyenv
+.python-version

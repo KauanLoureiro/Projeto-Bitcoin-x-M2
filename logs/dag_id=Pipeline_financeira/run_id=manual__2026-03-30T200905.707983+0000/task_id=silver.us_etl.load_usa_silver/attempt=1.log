@@ -1,0 +1,4 @@
+{"timestamp":"2026-03-30T20:10:00.333500","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2026-03-30T20:10:00.335119","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2026-03-30T20:10:06.329175","level":"info","event":"Connection Retrieved 'postgres_dw'","logger":"airflow.hooks.base"}
+{"timestamp":"2026-03-30T20:10:06.368672","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}
