@@ -1,0 +1,34 @@
+import requests
+import pandas as pd
+
+def extract_m2_eu():
+
+    url_base_EUR = "https://data-api.ecb.europa.eu/service/data/BSI/M.U2.Y.V.M20.X.1.U2.2300.Z01.E"
+
+    headers = {
+        "Accept": "application/json"
+    }
+
+    response = requests.get(url_base_EUR, headers=headers)
+
+    if response.status_code == 200:
+        print("Success")
+    else:
+        print(f"status error: {response.status_code}")
+
+    data_EURO = response.json()
+    
+    return data_EURO
+
+# BASE_DIR = Path(__file__).resolve().parents[1]
+# BRONZE_PATH = BASE_DIR / "Data" / "Bronze" / "M2_eu.json"
+
+# with open(BRONZE_PATH, "w", encoding="utf-8") as f:
+#     json.dump(
+#         data_EURO,
+#         f,
+#         ensure_ascii=False,
+#         indent=2
+#     )
+
+
