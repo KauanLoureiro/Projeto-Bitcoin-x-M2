@@ -53,3 +53,34 @@ Mais do que responder uma pergunta, este projeto busca transformar curiosidade e
 - Enfrentei problemas reais de engenharia de dados, como falhas de conexão, inconsistência de dados e necessidade de reprocessamento, o que me permitiu entender melhor a importância de pipelines resilientes.
 
 - Estruturei o carregamento de dados em um Data Warehouse (PostgreSQL) estabelecendo conexão por containers separados.
+
+## Como Executar
+
+1. Clonar o repositório
+- git clone (repo)
+- cd (repo)
+
+2. Subir os containers
+- docker-compose up -d
+
+3. Acessar o Airflow
+- http://localhost:8080
+
+4. Executar o pipeline
+- Ativar a DAG na interface do Airflow
+- Monitorar execução das tasks
+
+## Conclusão
+
+Este projeto demonstrou, na prática, a construção de um pipeline de dados completo, com arquitetura em camadas, orquestração com Apache Airflow e ambiente reproduzível via Docker, resultando em uma solução organizada, escalável e resiliente.
+
+Segue o gráfico de análise final gerado para responder a pergunta inicial do problema:
+
+![Output](./img/output.png)
+
+## Autor
+
+Kauan Amorim
+
+Linkedin: https://www.linkedin.com/in/kauanamorim1/
+Github: https://github.com/KauanLoureiro
