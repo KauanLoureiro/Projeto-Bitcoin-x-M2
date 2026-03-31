@@ -21,8 +21,6 @@ Rascunho/
 logs/
 *.log
 
-# Jupyter
-.ipynb_checkpoints
 
 # Sistema
 .DS_Store
