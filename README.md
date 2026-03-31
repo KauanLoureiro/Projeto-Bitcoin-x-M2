@@ -38,6 +38,18 @@ Mais do que responder uma pergunta, este projeto busca transformar curiosidade e
 
 ## Experiência e dificuldades
 
-Aqui vou relatar alguns pontos de aprendizado que tive como primeiro projeto:
+👉 Aqui relato alguns dos principais aprendizados obtidos ao longo do desenvolvimento deste projeto:
 
-- 
+- Na etapa de ingestão (camada Bronze), tive contato prático com consumo de dados externos, utilizando tanto APIs com autenticação quanto requisições sem chave, além de técnicas de web scraping com a biblioteca Requests.
+
+- Aprimorei o uso do Pandas para transformação de dados, lidando com limpeza, padronização, junção de datasets e tratamento de inconsistências. Trabalhar com **6 fontes de dados reais** trouxe desafios significativos — e muitas horas de debug — fundamentais para meu aprendizado!
+
+- Aprendi a estruturar um pipeline seguindo o conceito de arquitetura em camadas (Bronze, Silver e Gold), entendendo na prática a importância da separação entre dados brutos, tratados e prontos para análise.
+
+- Desenvolvi habilidades na orquestração de workflows com Apache Airflow, incluindo criação de DAGs, definição de dependências e organização de tarefas utilizando boas práticas como criação de TaskGroups.
+
+- Tive experiência prática com integração entre serviços via Docker, garantindo um ambiente isolado, reproduzível e consistente para execução do pipeline, subindo via docker-compose.
+
+- Enfrentei problemas reais de engenharia de dados, como falhas de conexão, inconsistência de dados e necessidade de reprocessamento, o que me permitiu entender melhor a importância de pipelines resilientes.
+
+- Estruturei o carregamento de dados em um Data Warehouse (PostgreSQL) estabelecendo conexão por containers separados.
